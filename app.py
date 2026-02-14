@@ -440,11 +440,41 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+# --- Helper to fix scikit-learn version issues ---
+def heal_pipeline(pipeline):
+    """
+    Recursively traverse a pipeline and add missing attributes that might cause
+    scikit-learn version mismatch errors (like _name_to_fitted_passthrough).
+    """
+    if not hasattr(pipeline, 'steps'):
+        return pipeline
+        
+    for name, step in pipeline.steps:
+        # Check for ColumnTransformer
+        if isinstance(step, (ColumnTransformer, sklearn.compose._column_transformer.ColumnTransformer)):
+            # Fix missing _name_to_fitted_passthrough (sklearn < 1.0 vs > 1.0 issue)
+            if not hasattr(step, '_name_to_fitted_passthrough'):
+                step._name_to_fitted_passthrough = {}
+            
+            # Fix missing _n_features (sometimes missing in older objects)
+            if not hasattr(step, '_n_features'):
+                # Best guess or 0
+                step._n_features = step.n_features_in_ if hasattr(step, 'n_features_in_') else 0
+                
+        # Recursively heal nested pipelines
+        if hasattr(step, 'steps'):
+            heal_pipeline(step)
+            
+    return pipeline
+
 # --- Load the saved models ---
 @st.cache_resource
 def load_model():
     try:
         pipeline = joblib.load('xgboost_smote_is_crisis_plus_3.pkl')
+        # Heal the pipeline to fix version incompatibilities
+        pipeline = heal_pipeline(pipeline)
         return pipeline
     except FileNotFoundError:
         st.error("Model file 'xgboost_smote_is_crisis_plus_3.pkl' not found. Please ensure it's in the correct directory.")
@@ -458,6 +488,8 @@ def load_severity_model():
     """Load XGBoost severity model (optional for ensemble - RandomForest available as fallback)"""
     try:
         severity_pipeline = joblib.load('xgboost_crisis_severity.pkl')
+        # Heal the pipeline to fix version incompatibilities
+        severity_pipeline = heal_pipeline(severity_pipeline)
         return severity_pipeline
     except FileNotFoundError:
         # Silent fallback - RandomForest model will be used instead
