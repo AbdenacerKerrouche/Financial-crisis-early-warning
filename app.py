@@ -10,6 +10,31 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 import xgboost as xgb
 from collections import deque
+import sys
+import sklearn.compose._column_transformer
+
+# SAFEGUARD: Patch for older scikit-learn models
+# The _RemainderColsList class was removed in scikit-learn 1.2+
+# We patch it directly into the module via sys.modules to ensure joblib finds it
+try:
+    target_module = sys.modules['sklearn.compose._column_transformer']
+    if not hasattr(target_module, '_RemainderColsList'):
+        class _RemainderColsList:
+            def __init__(self, transformers, remainder, n_features):
+                self.transformers = transformers
+                self.remainder = remainder
+                self.n_features = n_features
+        
+        # Explicitly set the module so pickle can find it
+        _RemainderColsList.__module__ = 'sklearn.compose._column_transformer'
+        
+        # Inject into the module
+        setattr(target_module, '_RemainderColsList', _RemainderColsList)
+        
+        # Also inject into the imported object just in case
+        sklearn.compose._column_transformer._RemainderColsList = _RemainderColsList
+except Exception as e:
+    pass # Best effort patch
 
 # --- Configuration ---
 st.set_page_config(
