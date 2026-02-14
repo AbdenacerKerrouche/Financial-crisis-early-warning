@@ -8,3 +8,4 @@ imbalanced-learn
 networkx
 plotly
 joblib
+matplotlib
