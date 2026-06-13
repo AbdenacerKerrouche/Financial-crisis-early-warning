@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -472,12 +473,13 @@ def heal_pipeline(pipeline):
 @st.cache_resource
 def load_model():
     try:
-        pipeline = joblib.load('xgboost_smote_is_crisis_plus_3.pkl')
+        path = os.path.join("models", "best_clf_xgboost.pkl")
+        pipeline = joblib.load(path)
         # Heal the pipeline to fix version incompatibilities
         pipeline = heal_pipeline(pipeline)
         return pipeline
     except FileNotFoundError:
-        st.error("Model file 'xgboost_smote_is_crisis_plus_3.pkl' not found. Please ensure it's in the correct directory.")
+        st.error("Model file 'best_clf_xgboost.pkl' not found. Please ensure it's in the correct directory.")
         st.stop()
     except Exception as e:
         st.error(f"Error loading model: {e}")
@@ -487,7 +489,8 @@ def load_model():
 def load_severity_model():
     """Load XGBoost severity model (optional for ensemble - RandomForest available as fallback)"""
     try:
-        severity_pipeline = joblib.load('xgboost_crisis_severity.pkl')
+        path = os.path.join("models", "best_reg_rf.pkl")
+        severity_pipeline = joblib.load(path)
         # Heal the pipeline to fix version incompatibilities
         severity_pipeline = heal_pipeline(severity_pipeline)
         return severity_pipeline
@@ -502,7 +505,8 @@ def load_severity_model():
 def load_randomforest_severity_model():
     """Load RandomForest severity model (silent if missing - XGBoost available as fallback)"""
     try:
-        rf_severity_model = joblib.load('randomforest_severity_regressor.pkl')
+        path = os.path.join("models", "best_reg_rf.pkl")
+        rf_severity_model = joblib.load(path)
         return rf_severity_model
     except FileNotFoundError:
         # Silent fallback - XGBoost model will be used instead
