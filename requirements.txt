@@ -1,10 +1,11 @@
 streamlit
 pandas
 numpy
+random
 scikit-learn==1.3.2
 xgboost
 lightgbm
-imbalanced-learn
+catboost
 networkx
 plotly
 joblib
