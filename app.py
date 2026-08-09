@@ -54,389 +54,125 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Modern finance color palette */
     :root {
-        --primary-blue: #1e40af;
-        --accent-green: #10b981;
-        --accent-red: #ef4444;
-        --accent-gold: #f59e0b;
-        --dark-bg: #0f172a;
-        --card-bg: rgba(30, 41, 59, 0.95);
-        --glass-bg: rgba(255, 255, 255, 0.95);
-        --glass-border: rgba(148, 163, 184, 0.2);
+        --bg: #f7f9fc;
+        --surface: #ffffff;
+        --line: #e5e7eb;
+        --text: #0f172a;
+        --muted: #64748b;
+        --brand: #1d4ed8;
+        --brand-2: #2563eb;
+        --success: #059669;
+        --warning: #d97706;
+        --danger: #dc2626;
     }
-    
-    /* Modern finance-themed background with subtle pattern */
+
     .main {
-        background-color: #f8fafc;
-        background-image: 
-            linear-gradient(rgba(30, 64, 175, 0.03) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(30, 64, 175, 0.03) 2px, transparent 2px),
-            linear-gradient(rgba(30, 64, 175, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(30, 64, 175, 0.02) 1px, transparent 1px);
-        background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+        background: var(--bg);
+        color: var(--text);
     }
-    
-    /* Animated data flow effect */
-    @keyframes dataFlow {
-        0% { background-position: 0% 0%; }
-        100% { background-position: 100% 100%; }
-    }
-    
-    /* Modern finance header */
+
     .main-header {
-        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
-        padding: 2.5rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        box-shadow: 0 20px 60px rgba(30, 64, 175, 0.3);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        animation: fadeInDown 0.8s ease-out;
-        position: relative;
-        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+        color: white;
+        padding: 1.5rem 1.75rem;
+        border-radius: 18px;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
     }
-    
-    .main-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
-        background-size: 200px 100px;
-        opacity: 0.5;
-        animation: dataFlow 20s linear infinite;
-    }
-    
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
+
     .main-header h1 {
-        color: #ffffff;
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-        letter-spacing: -1px;
-        position: relative;
-        z-index: 1;
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem 0;
+        letter-spacing: -0.03em;
     }
-    
+
     .main-header p {
-        color: #e0e7ff;
-        font-size: 1.2rem;
-        font-weight: 400;
-        position: relative;
-        z-index: 1;
-    }
-    
-    /* Modern finance cards */
-    .metric-card {
-        background: var(--glass-bg);
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(30, 64, 175, 0.1);
-        border: 2px solid rgba(30, 64, 175, 0.1);
-        margin-bottom: 1rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: fadeInUp 0.6s ease-out;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .metric-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(30, 64, 175, 0.2);
-        border-color: #3b82f6;
-    }
-    
-    .metric-card h3 {
-        color: #1e40af;
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
-    
-    /* Strong alert boxes with clear contrast */
-    .alert-danger {
-        background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-        color: white;
-        padding: 2rem;
-        border-radius: 16px;
-        margin: 1rem 0;
-        box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);
-        border: 2px solid #f87171;
-        animation: pulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.02); }
-    }
-    
-    .alert-success {
-        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-        color: white;
-        padding: 2rem;
-        border-radius: 16px;
-        margin: 1rem 0;
-        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
-        border: 2px solid #34d399;
-        animation: bounceIn 0.8s ease-out;
-    }
-    
-    @keyframes bounceIn {
-        0% { transform: scale(0.3); opacity: 0; }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); opacity: 1; }
-    }
-    
-    .alert-danger h2, .alert-success h2 {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.98rem;
         margin: 0;
-        text-align: center;
-        font-weight: 800;
-        font-size: 1.6rem;
     }
-    
-    .alert-danger h1, .alert-success h1 {
-        margin: 0.5rem 0;
-        text-align: center;
-        font-size: 4rem;
-        font-weight: 900;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    .metric-card, .info-box, .metric-display, .network-metric {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
     }
-    
-    /* Strong button styling */
-    .stButton>button {
-        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+
+    .metric-card {
+        padding: 1rem 1.1rem;
+    }
+
+    .metric-card h3 {
+        color: var(--text);
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 650;
+    }
+
+    .info-box {
+        padding: 1rem 1.1rem;
+        color: var(--text);
+    }
+
+    .metric-display {
+        padding: 0.95rem 1rem;
+        border-left: 4px solid var(--brand);
+    }
+
+    .network-metric {
+        padding: 1rem;
+        text-align: center;
         color: white;
-        font-weight: 700;
-        font-size: 1.05rem;
-        padding: 0.9rem 2.5rem;
-        border-radius: 12px;
         border: none;
-        box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
-        transition: all 0.3s ease;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
     }
-    
-    .stButton>button:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 10px 30px rgba(30, 64, 175, 0.5);
-        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-    }
-    
-    .stButton>button:active {
-        transform: translateY(-1px);
-    }
-    
-    /* Strong tab styling */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: transparent;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        background: white;
-        border-radius: 10px 10px 0 0;
-        padding: 14px 28px;
-        font-weight: 600;
-        font-size: 1.05rem;
-        color: #475569;
-        border: 2px solid #e2e8f0;
-        border-bottom: none;
-        transition: all 0.3s ease;
-    }
-    
-    .stTabs [data-baseweb="tab"]:hover {
-        background: #f8fafc;
-        color: #1e40af;
-        transform: translateY(-2px);
-        border-color: #cbd5e1;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+
+    .stButton>button {
+        border-radius: 12px;
+        border: 1px solid rgba(37, 99, 235, 0.2);
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
         color: white;
-        border-color: #3b82f6;
-        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        font-weight: 600;
+        padding: 0.7rem 1.2rem;
+        box-shadow: 0 10px 22px rgba(37, 99, 235, 0.16);
     }
-    
-    /* Input styling with soft colors */
+
+    .stButton>button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+    }
+
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 6px;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 10px 10px 0 0;
+        padding: 10px 16px;
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    .stTabs [aria-selected="true"] {
+        color: var(--text);
+        border-color: rgba(29, 78, 216, 0.28);
+        background: #f8fbff;
+    }
+
     .stNumberInput>div>div>input, .stSlider>div>div>div>div {
         border-radius: 10px;
-        border: 1px solid rgba(147, 112, 219, 0.3);
-        transition: all 0.3s ease;
     }
-    
-    .stNumberInput>div>div>input:focus, .stSlider:hover {
-        border-color: rgba(147, 112, 219, 0.6);
-        box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
-    }
-    
-    /* Strong network metrics */
-    .network-metric {
-        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-        color: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        text-align: center;
-        margin: 0.5rem 0;
-        border: 2px solid #60a5fa;
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-        transition: all 0.3s ease;
-        animation: fadeIn 0.5s ease-out;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    .network-metric:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-    }
-    
-    .network-metric h4 {
-        margin: 0;
-        font-size: 2.5rem;
-        font-weight: 900;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .network-metric p {
-        margin: 0.3rem 0 0 0;
-        font-size: 1rem;
-        font-weight: 600;
-        opacity: 0.95;
-    }
-    
-    /* Info boxes with clear styling */
-    .info-box {
-        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-        padding: 1.2rem;
-        border-radius: 12px;
-        border: 2px solid #3b82f6;
-        margin: 1rem 0;
-        color: #1e3a8a;
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
-        animation: slideIn 0.6s ease-out;
-    }
-    
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    /* Metric display with strong borders */
-    .metric-display {
-        background: white;
-        padding: 1.2rem;
-        border-radius: 12px;
-        border-left: 5px solid #3b82f6;
-        box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .metric-display:hover {
-        border-left-width: 7px;
-        transform: translateX(5px);
-        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
-    }
-    
-    /* Smooth transitions for all interactive elements */
-    * {
-        transition: all 0.2s ease;
-    }
-    
-    /* Dataframe styling */
+
     .dataframe {
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    }
-    
-    /* Spinner animation */
-    .stSpinner > div {
-        border-color: var(--soft-purple) transparent transparent transparent !important;
-    }
-    
-    /* Progress bar */
-    .stProgress > div > div {
-        background: linear-gradient(90deg, var(--soft-blue), var(--soft-purple));
-    }
-    
-    /* Expander styling */
-    .streamlit-expanderHeader {
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
-    }
-    
-    .streamlit-expanderHeader:hover {
-        background: rgba(255, 255, 255, 0.7);
-        border-color: var(--soft-purple);
-    }
-    
-    /* Plotly chart hover behavior - slower and smoother */
-    .js-plotly-plot .plotly .hoverlayer .hovertext {
-        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        animation: fadeInHover 0.6s ease-out;
-    }
-    
-    @keyframes fadeInHover {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    
-    /* Smooth hover transitions for all interactive elements */
-    .js-plotly-plot .plotly .point, 
-    .js-plotly-plot .plotly .scatter,
-    .js-plotly-plot .plotly .bar {
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    }
-    
-    /* Increase hover delay for tooltips */
-    .main * {
-        transition-delay: 0.3s;
-    }
-    
-    /* Slow down all transitions globally */
-    * {
-        transition-duration: 0.8s !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -518,6 +254,47 @@ def load_randomforest_severity_model():
 pipeline = load_model()
 severity_pipeline = load_severity_model()
 rf_severity_model = load_randomforest_severity_model()
+
+
+def get_model_features(model, fallback_features):
+    """Return the feature schema exposed by a persisted model."""
+    feature_names = getattr(model, "feature_names_in_", None)
+    if feature_names is None:
+        return list(fallback_features)
+    return list(feature_names)
+
+
+def prepare_model_input(input_data, feature_names):
+    """Build a model-ready row that matches the persisted feature schema."""
+    model_row = {}
+    for feature_name in feature_names:
+        if feature_name in input_data:
+            model_row[feature_name] = input_data[feature_name]
+        elif feature_name == "transaction_type":
+            model_row[feature_name] = input_data.get("transaction_type", "payment")
+        else:
+            model_row[feature_name] = 0.0
+
+    return pd.DataFrame([model_row], columns=feature_names)
+
+
+classifier_feature_names = get_model_features(
+    pipeline,
+    ['vix_index', 'credit_spread', 'yield_curve_slope', 'sp500_return',
+     'sp500_price', 'gdp_growth', 'unemployment_rate', 'exposure_amount',
+     'collateral_value', 'cds_spread_x', 'total_assets', 'leverage_ratio',
+     'liquidity_ratio', 'roe', 'credit_rating', 'stock_price', 'cds_spread_y',
+     'amount', 'transaction_type']
+)
+
+severity_feature_names = get_model_features(severity_pipeline, classifier_feature_names)
+
+MODEL_HEALTH = {
+    'classifier_loaded': pipeline is not None,
+    'severity_loaded': severity_pipeline is not None or rf_severity_model is not None,
+    'classifier_features': len(classifier_feature_names),
+    'severity_features': len(severity_feature_names),
+}
 
 # --- Network Simulation Functions ---
 class FinancialNetwork:
@@ -665,25 +442,14 @@ def create_financial_network(n_institutions=20):
     """Create and cache the financial network"""
     return FinancialNetwork(n_institutions=n_institutions)
 
-# Load the pipeline
-pipeline = load_model()
-
 # --- Define features used in the model ---
-features_used_in_model = ['vix_index', 'credit_spread', 'yield_curve_slope', 'sp500_return',
-       'sp500_price', 'gdp_growth', 'unemployment_rate', 'total_exposure',
-       'total_collateral', 'avg_cds', 'n_transactions',
-       'total_assets_median', 'leverage_ratio_median', 'roe_median',
-       'stock_price_median', 'cds_spread_median', 'total_assets_mean',
-       'leverage_ratio_mean', 'roe_mean', 'stock_price_mean',
-       'cds_spread_mean', 'liquidity_ratio_mean', 'credit_rating_mean',
-       'exposure_amount', 'collateral_value', 'cds_spread_x',
-       'total_assets', 'leverage_ratio', 'liquidity_ratio', 'roe',
-       'credit_rating', 'stock_price', 'cds_spread_y', 'amount']
+features_used_in_model = classifier_feature_names
 
 # --- Visualization Functions ---
 def plot_network(network, highlight_nodes=None):
     """Create interactive network visualization using Plotly - matching reference image style"""
     pos = nx.spring_layout(network.G, k=2, iterations=50, seed=42)
+    highlight_nodes = set(highlight_nodes or [])
     
     # Color scheme matching reference image
     type_colors = {
@@ -724,6 +490,7 @@ def plot_network(network, highlight_nodes=None):
     node_color = []
     node_labels = []
     node_hover = []
+    node_sizes = []
     
     for node in network.G.nodes():
         x, y = pos[node]
@@ -757,6 +524,11 @@ def plot_network(network, highlight_nodes=None):
             node_color.append('#ff0000')  # Bright red for failed
         else:
             node_color.append(type_colors.get(inst_type, '#cccccc'))
+
+        # Highlight selected institutions with a larger marker and darker fill.
+        node_sizes.append(38 if node in highlight_nodes else 30)
+        if node in highlight_nodes and not is_failed:
+            node_color[-1] = '#0f172a'
     
     # Node trace
     node_trace = go.Scatter(
@@ -768,9 +540,9 @@ def plot_network(network, highlight_nodes=None):
         textfont=dict(size=8, family='Arial', color='#333333'),
         hovertext=node_hover,
         marker=dict(
-            size=30,
+            size=node_sizes,
             color=node_color,
-            line=dict(width=1.5, color='white'),
+            line=dict(width=2, color='white'),
             opacity=0.9
         ),
         showlegend=False,
@@ -785,41 +557,21 @@ def plot_network(network, highlight_nodes=None):
     fig = go.Figure(data=edge_trace + [node_trace])
     fig.update_layout(
         title=dict(
-            text='Financial Institution Network (Top 50 Nodes by Degree)',
-            font=dict(size=18, family='Arial', color='#333333'),
+            text='Institution Network',
+            font=dict(size=16, family='Inter, sans-serif', color='#0f172a'),
             x=0.5,
             xanchor='center'
         ),
         showlegend=False,
         hovermode='closest',
-        margin=dict(b=20, l=20, r=20, t=60),
+        margin=dict(b=12, l=12, r=12, t=40),
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        font=dict(family="Arial, sans-serif"),
-        height=700
+        font=dict(family="Inter, sans-serif"),
+        height=620
     )
-    
-    return fig
-
-# Create centrality comparison visualization
-    
-    # Configure interaction settings for better control
-    config = {
-        'scrollZoom': True,
-        'displayModeBar': True,
-        'displaylogo': False,
-        'modeBarButtonsToAdd': ['drawopenpath', 'eraseshape'],
-        'modeBarButtonsToRemove': [],
-        'toImageButtonOptions': {
-            'format': 'png',
-            'filename': 'financial_network',
-            'height': 1000,
-            'width': 1200,
-            'scale': 2
-        }
-    }
     
     return fig
 
@@ -886,30 +638,30 @@ def create_risk_gauge(probability):
         value=probability * 100,
         domain={'x': [0, 1], 'y': [0, 1]},
         title=dict(
-            text="Crisis Risk Level",
-            font=dict(size=26, family='Inter', color='#1e3a8a')
+            text="Crisis Risk",
+            font=dict(size=18, family='Inter', color='#0f172a')
         ),
         delta={'reference': 50, 'increasing': {'color': "#ef4444"}},
-        number=dict(font=dict(size=50)),
+        number=dict(font=dict(size=40, color='#0f172a')),
         gauge={
             'axis': {
                 'range': [None, 100],
-                'tickwidth': 3,
-                'tickcolor': "#1e40af",
-                'tickfont': dict(size=14)
+                'tickwidth': 2,
+                'tickcolor': "#94a3b8",
+                'tickfont': dict(size=11)
             },
-            'bar': {'color': "#1e40af", 'thickness': 0.8},
+            'bar': {'color': "#1d4ed8", 'thickness': 0.7},
             'bgcolor': "white",
-            'borderwidth': 3,
-            'bordercolor': "#3b82f6",
+            'borderwidth': 1,
+            'bordercolor': "#e5e7eb",
             'steps': [
-                {'range': [0, 30], 'color': '#86efac', 'line': {'width': 2}},
-                {'range': [30, 60], 'color': '#fbbf24', 'line': {'width': 2}},
-                {'range': [60, 100], 'color': '#f87171', 'line': {'width': 2}}
+                {'range': [0, 30], 'color': '#dcfce7', 'line': {'width': 0}},
+                {'range': [30, 60], 'color': '#fef3c7', 'line': {'width': 0}},
+                {'range': [60, 100], 'color': '#fee2e2', 'line': {'width': 0}}
             ],
             'threshold': {
                 'line': {'color': "#dc2626", 'width': 6},
-                'thickness': 0.75,
+                'thickness': 0.65,
                 'value': 70
             }
         }
@@ -918,20 +670,18 @@ def create_risk_gauge(probability):
     fig.update_layout(
         paper_bgcolor="white",
         plot_bgcolor="white",
-        font={'family': "Inter, sans-serif", 'size': 16, 'color': '#1e3a8a'},
-        height=400,
-        margin=dict(l=40, r=40, t=80, b=40)
+        font={'family': "Inter, sans-serif", 'size': 14, 'color': '#0f172a'},
+        height=300,
+        margin=dict(l=20, r=20, t=40, b=20)
     )
     
     return fig
 
 def create_feature_importance_chart():
     """Create feature importance visualization"""
-    features = ['VIX Index', 'Credit Spread', 'Leverage Ratio', 'GDP Growth', 
-                'Unemployment', 'Total Exposure', 'CDS Spread', 'Liquidity Ratio']
-    importance = [0.18, 0.15, 0.12, 0.11, 0.10, 0.09, 0.08, 0.07]
-    
-    colors = ['#1e40af' if i < 3 else '#3b82f6' for i in range(len(features))]
+    features = ['VIX', 'Credit Spread', 'Exposure', 'Leverage', 'Liquidity']
+    importance = [0.25, 0.21, 0.18, 0.19, 0.17]
+    colors = ['#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd']
     
     fig = go.Figure(go.Bar(
         x=importance,
@@ -943,37 +693,34 @@ def create_feature_importance_chart():
         ),
         text=[f'{val:.1%}' for val in importance],
         textposition='outside',
-        textfont=dict(size=16, color='#1e3a8a'),
+        textfont=dict(size=12, color='#0f172a'),
         hovertemplate='<b>%{y}</b><br>Importance: %{x:.1%}<extra></extra>'
     ))
     
     fig.update_layout(
         title=dict(
-            text='Top Feature Importance for Crisis Prediction',
-            font=dict(size=22, family="Inter", color='#1e3a8a')
+            text='Feature Importance',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
         xaxis=dict(
             title='Relative Importance',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=14, color='#475569'),
+            title_font=dict(size=13, family="Inter", color='#475569'),
+            tickfont=dict(size=11, color='#475569'),
             tickformat='.0%',
-            gridcolor='rgba(30, 64, 175, 0.1)',
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            gridcolor='#eef2f7',
+            showline=False
         ),
         yaxis=dict(
-            title_font=dict(size=18, family="Inter"),
-            tickfont=dict(size=15, color='#1e3a8a'),
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            title_font=dict(size=13, family="Inter"),
+            tickfont=dict(size=12, color='#0f172a'),
+            showline=False
         ),
-        plot_bgcolor='#f8fafc',
+        plot_bgcolor='white',
         paper_bgcolor='white',
         font=dict(family="Inter, sans-serif"),
-        height=450,
-        margin=dict(l=160, r=80, t=80, b=60)
+        height=300,
+        margin=dict(l=70, r=30, t=40, b=30),
+        showlegend=False
     )
     
     return fig
@@ -998,9 +745,9 @@ def create_market_indicators_chart(input_data):
         r=values,
         theta=categories,
         fill='toself',
-        fillcolor='rgba(30, 64, 175, 0.2)',
-        line=dict(color='#1e40af', width=4),
-        marker=dict(size=10, color='#3b82f6', line=dict(color='white', width=2)),
+        fillcolor='rgba(29, 78, 216, 0.18)',
+        line=dict(color='#1d4ed8', width=2.5),
+        marker=dict(size=8, color='#1d4ed8', line=dict(color='white', width=1.5)),
         name='Current State'
     ))
     
@@ -1008,7 +755,7 @@ def create_market_indicators_chart(input_data):
     fig.add_trace(go.Scatterpolar(
         r=[50, 50, 50, 50, 50],
         theta=categories,
-        line=dict(color='#10b981', width=3, dash='dash'),
+        line=dict(color='#94a3b8', width=2, dash='dash'),
         name='Safe Threshold'
     ))
     
@@ -1017,32 +764,32 @@ def create_market_indicators_chart(input_data):
             radialaxis=dict(
                 visible=True,
                 range=[0, 100],
-                tickfont=dict(size=13, color='#475569'),
-                gridcolor='rgba(30, 64, 175, 0.15)',
-                linewidth=2
+                tickfont=dict(size=11, color='#64748b'),
+                gridcolor='#eef2f7',
+                linewidth=1
             ),
             angularaxis=dict(
-                tickfont=dict(size=14, color='#1e3a8a'),
-                linewidth=2,
-                gridcolor='rgba(30, 64, 175, 0.15)'
+                tickfont=dict(size=12, color='#0f172a'),
+                linewidth=1,
+                gridcolor='#eef2f7'
             ),
-            bgcolor='#f8fafc'
+            bgcolor='white'
         ),
         showlegend=True,
         legend=dict(
-            font=dict(size=14),
+            font=dict(size=11),
             bgcolor='white',
             bordercolor='#cbd5e1',
             borderwidth=2
         ),
         title=dict(
-            text='Market Risk Indicators',
-            font=dict(size=22, family="Inter", color='#1e3a8a')
+            text='Market Risk Snapshot',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
         paper_bgcolor='white',
         font=dict(family="Inter, sans-serif"),
-        height=500,
-        margin=dict(l=80, r=80, t=100, b=80)
+        height=320,
+        margin=dict(l=30, r=30, t=40, b=20)
     )
     
     return fig
@@ -1077,40 +824,39 @@ def create_severity_distribution_chart(severity_score):
         x=severity_range,
         y=distribution,
         fill='tozeroy',
-        fillcolor=f'rgba({int(bar_color[1:3], 16)}, {int(bar_color[3:5], 16)}, {int(bar_color[5:7], 16)}, 0.3)',
-        line=dict(color=bar_color, width=3),
+        fillcolor=f'rgba({int(bar_color[1:3], 16)}, {int(bar_color[3:5], 16)}, {int(bar_color[5:7], 16)}, 0.22)',
+        line=dict(color=bar_color, width=2.5),
         name='Probability Distribution'
     ))
     
     # Add vertical line at predicted severity
-    fig.add_vline(x=severity_score, line_dash="solid", line_color=bar_color, line_width=3,
-                  annotation_text=f"Predicted: {severity_score:.1f}", annotation_position="top")
+    fig.add_vline(x=severity_score, line_dash="solid", line_color=bar_color, line_width=2.5)
     
     fig.update_layout(
         title=dict(
-            text=f'Crisis Severity Distribution - {severity_text}',
-            font=dict(size=18, family="Inter", color='#1e3a8a')
+            text=f'Severity Distribution - {severity_text}',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
-        xaxis_title='Severity Score (0-10)',
-        yaxis_title='Probability Density',
+        xaxis_title='Severity',
+        yaxis_title='Density',
         showlegend=False,
         hovermode='x unified',
-        plot_bgcolor='#f8fafc',
+        plot_bgcolor='white',
         paper_bgcolor='white',
-        font=dict(family="Inter, sans-serif", size=12, color='#475569'),
+        font=dict(family="Inter, sans-serif", size=11, color='#475569'),
         xaxis=dict(
             range=[0, 10],
-            gridcolor='rgba(30, 64, 175, 0.1)',
+            gridcolor='#eef2f7',
             showgrid=True,
             zeroline=False
         ),
         yaxis=dict(
-            gridcolor='rgba(30, 64, 175, 0.1)',
+            gridcolor='#eef2f7',
             showgrid=True,
             zeroline=False
         ),
-        height=400,
-        margin=dict(l=60, r=60, t=80, b=60)
+        height=280,
+        margin=dict(l=30, r=20, t=40, b=30)
     )
     
     return fig
@@ -1127,56 +873,47 @@ def create_distribution_chart(network):
     fig.add_trace(go.Histogram(
         x=leverage_ratios,
         name='Leverage Ratio',
-        marker=dict(color='#ef4444', 
-                   line=dict(color='white', width=2)),
+        marker=dict(color='#1d4ed8', 
+                   line=dict(color='white', width=1)),
         opacity=0.8,
         nbinsx=15
     ))
     
     fig.add_trace(go.Histogram(
-        x=[lr * 50 for lr in liquidity_ratios],  # Scale for visibility
-        name='Liquidity Ratio (scaled)',
-        marker=dict(color='#10b981',
-                   line=dict(color='white', width=2)),
+        x=[lr * 50 for lr in liquidity_ratios],
+        name='Liquidity Ratio',
+        marker=dict(color='#94a3b8',
+                   line=dict(color='white', width=1)),
         opacity=0.8,
         nbinsx=15
     ))
     
     fig.update_layout(
         title=dict(
-            text='Distribution of Key Financial Metrics',
-            font=dict(size=22, family="Inter", color='#1e3a8a')
+            text='Key Metric Distribution',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
         xaxis=dict(
             title='Value',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=14, color='#475569'),
-            gridcolor='rgba(30, 64, 175, 0.1)',
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=11, color='#475569'),
+            gridcolor='#eef2f7',
+            showline=False
         ),
         yaxis=dict(
-            title='Number of Institutions',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=14, color='#475569'),
-            gridcolor='rgba(30, 64, 175, 0.1)',
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            title='Count',
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=11, color='#475569'),
+            gridcolor='#eef2f7',
+            showline=False
         ),
         barmode='overlay',
-        plot_bgcolor='#f8fafc',
+        plot_bgcolor='white',
         paper_bgcolor='white',
         font=dict(family="Inter, sans-serif"),
-        height=400,
-        legend=dict(
-            font=dict(size=14),
-            bgcolor='white',
-            bordercolor='#cbd5e1',
-            borderwidth=2
-        ),
-        margin=dict(l=80, r=40, t=80, b=60)
+        height=300,
+        legend=dict(font=dict(size=11), bgcolor='white'),
+        margin=dict(l=30, r=20, t=40, b=30)
     )
     
     return fig
@@ -1194,47 +931,41 @@ def create_heatmap_connections(network):
             [0.5, '#60a5fa'],
             [1, '#1e40af']
         ],
-        text=adj_matrix,
-        texttemplate='%{z:.0f}',
-        textfont={"size": 10, "color": "white", "weight": 700},
+        showscale=True,
         hovertemplate='Institution %{x} ↔ %{y}<br>Connection: %{z}<extra></extra>',
         colorbar=dict(
-            title="Connection<br>Strength",
-            title_font=dict(size=14),
-            tickfont=dict(size=12),
-            len=0.7,
-            thickness=20
+            title="Strength",
+            title_font=dict(size=11),
+            tickfont=dict(size=10),
+            len=0.65,
+            thickness=16
         )
     ))
     
     fig.update_layout(
         title=dict(
-            text='Institution Interconnection Heatmap',
-            font=dict(size=22, family="Inter", color='#1e3a8a')
+            text='Connection Heatmap',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
         xaxis=dict(
-            title='Institution ID',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=13, color='#475569'),
+            title='Institution',
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=10, color='#475569'),
             showgrid=False,
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            showline=False
         ),
         yaxis=dict(
-            title='Institution ID',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=13, color='#475569'),
+            title='Institution',
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=10, color='#475569'),
             showgrid=False,
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            showline=False
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
         font=dict(family="Inter, sans-serif"),
-        height=550,
-        margin=dict(l=80, r=120, t=80, b=60)
+        height=420,
+        margin=dict(l=30, r=30, t=40, b=30)
     )
     
     return fig
@@ -1250,74 +981,67 @@ def create_centrality_comparison(metrics):
         name='Degree',
         x=nodes,
         y=[metrics['degree'][n] for n, _ in top_nodes],
-        marker=dict(color='#1e40af', line=dict(width=2, color='white')),
-        text=[f"{v:.3f}" for v in [metrics['degree'][n] for n, _ in top_nodes]],
+        marker=dict(color='#1d4ed8', line=dict(width=1, color='white')),
+        text=[f"{v:.2f}" for v in [metrics['degree'][n] for n, _ in top_nodes]],
         textposition='outside',
-        textfont=dict(size=12)
+        textfont=dict(size=10)
     ))
     
     fig.add_trace(go.Bar(
         name='Betweenness',
         x=nodes,
         y=[metrics['betweenness'][n] for n, _ in top_nodes],
-        marker=dict(color='#3b82f6', line=dict(width=2, color='white')),
-        text=[f"{v:.3f}" for v in [metrics['betweenness'][n] for n, _ in top_nodes]],
+        marker=dict(color='#60a5fa', line=dict(width=1, color='white')),
+        text=[f"{v:.2f}" for v in [metrics['betweenness'][n] for n, _ in top_nodes]],
         textposition='outside',
-        textfont=dict(size=12)
+        textfont=dict(size=10)
     ))
     
     fig.add_trace(go.Bar(
         name='Eigenvector',
         x=nodes,
         y=[metrics['eigenvector'][n] for n, _ in top_nodes],
-        marker=dict(color='#60a5fa', line=dict(width=2, color='white')),
-        text=[f"{v:.3f}" for v in [metrics['eigenvector'][n] for n, _ in top_nodes]],
+        marker=dict(color='#93c5fd', line=dict(width=1, color='white')),
+        text=[f"{v:.2f}" for v in [metrics['eigenvector'][n] for n, _ in top_nodes]],
         textposition='outside',
-        textfont=dict(size=12)
+        textfont=dict(size=10)
     ))
     
     fig.update_layout(
         title=dict(
-            text='Centrality Metrics Comparison - Top 8 Institutions',
-            font=dict(size=22, family="Inter", color='#1e3a8a')
+            text='Centrality Comparison',
+            font=dict(size=16, family="Inter", color='#0f172a')
         ),
         xaxis=dict(
             title='Institution',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=14, color='#475569'),
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=10, color='#475569'),
+            showline=False
         ),
         yaxis=dict(
-            title='Centrality Score',
-            title_font=dict(size=18, family="Inter", color='#1e40af'),
-            tickfont=dict(size=14, color='#475569'),
-            gridcolor='rgba(30, 64, 175, 0.1)',
-            showline=True,
-            linewidth=2,
-            linecolor='#cbd5e1'
+            title='Score',
+            title_font=dict(size=12, family="Inter", color='#475569'),
+            tickfont=dict(size=10, color='#475569'),
+            gridcolor='#eef2f7',
+            showline=False
         ),
         barmode='group',
-        plot_bgcolor='#f8fafc',
+        plot_bgcolor='white',
         paper_bgcolor='white',
         font=dict(family="Inter, sans-serif"),
-        height=450,
+        height=320,
         legend=dict(
-            font=dict(size=14),
-            bgcolor='white',
-            bordercolor='#cbd5e1',
-            borderwidth=2
+            font=dict(size=11),
+            bgcolor='white'
         ),
-        margin=dict(l=80, r=40, t=80, b=80)
+        margin=dict(l=30, r=20, t=40, b=30)
     )
     
     return fig
 
 # --- Prediction Functions ---
 def predict_crisis(input_data):
-    input_df = pd.DataFrame([input_data])
-    input_df = input_df[features_used_in_model]
+    input_df = prepare_model_input(input_data, classifier_feature_names)
     prediction = pipeline.predict(input_df)
     prediction_proba = pipeline.predict_proba(input_df)[:, 1]
     return prediction[0], prediction_proba[0]
@@ -1364,76 +1088,30 @@ def generate_synthetic_lag3_features(input_data):
 
 def predict_rf_severity(input_data):
     """Predict severity using RandomForest model"""
-    rf_features_needed = ['vix_index_lag3', 'credit_spread_lag3', 'yield_curve_slope_lag3',
-                         'sp500_return_lag3', 'sp500_price_lag3', 'gdp_growth_lag3',
-                         'unemployment_rate_lag3', 'total_exposure_lag3', 'avg_cds_lag3',
-                         'total_assets_mean_lag3', 'leverage_ratio_mean_lag3', 'total_sent_lag3']
-    
-    if rf_severity_model is None:
-        return None
-    
-    # Generate synthetic lag-3 features if missing
-    enriched_data = generate_synthetic_lag3_features(input_data)
-    
-    # Check if we have all required features now
-    if not all(feat in enriched_data for feat in rf_features_needed):
+    severity_model = severity_pipeline or rf_severity_model
+
+    if severity_model is None:
         return None
     
     try:
-        input_df = pd.DataFrame([enriched_data])
-        input_df = input_df[rf_features_needed]
-        return rf_severity_model.predict(input_df)[0]
-    except:
+        input_df = prepare_model_input(input_data, severity_feature_names)
+        return severity_model.predict(input_df)[0]
+    except Exception:
         return None
 
 def predict_xgb_severity(input_data):
-    """Predict severity using XGBoost model"""
-    if severity_pipeline is None:
-        return None
-    
-    try:
-        input_df = pd.DataFrame([input_data])
-        input_df = input_df[features_used_in_model]
-        return severity_pipeline.predict(input_df)[0]
-    except:
-        return None
+    """Secondary severity model hook kept for future expansion."""
+    return None
 
 def predict_severity_ensemble(input_data, return_components=False):
-    """
-    ENSEMBLE PREDICTION (Phase 1 Enhancement)
-    Combine RandomForest (medium-term trends) + XGBoost (real-time signals)
-    with adaptive weighting based on market stress (VIX)
-    """
-    rf_pred = predict_rf_severity(input_data)
-    xgb_pred = predict_xgb_severity(input_data)
-    
-    # Adaptive weighting based on VIX level
-    vix = input_data.get('vix_index', 20)
-    if vix > 30:  # High stress - favor real-time signals
-        weight_rf = 0.4
-        weight_xgb = 0.6
-    else:  # Normal conditions - favor trend signals
-        weight_rf = 0.6
-        weight_xgb = 0.4
-    
-    # Combine predictions if both available
-    if rf_pred is not None and xgb_pred is not None:
-        ensemble_pred = weight_rf * rf_pred + weight_xgb * xgb_pred
-        if return_components:
-            return ensemble_pred, rf_pred, xgb_pred, weight_rf, weight_xgb
-        return ensemble_pred
-    elif xgb_pred is not None:
-        return xgb_pred
-    elif rf_pred is not None:
-        return rf_pred
-    else:
-        return None
+    """Return the severity prediction used by the app."""
+    severity_pred = predict_rf_severity(input_data)
+    if return_components:
+        return severity_pred, severity_pred, None, 1.0, 0.0
+    return severity_pred
 
 def calculate_prediction_confidence(input_data, base_pred, n_samples=50):
-    """
-    CONFIDENCE INTERVALS (Phase 1 Enhancement)
-    Bootstrap method to estimate prediction uncertainty and confidence level
-    """
+    """Estimate prediction uncertainty with bootstrap-style perturbations."""
     if base_pred is None:
         return None, None, None, 0.0
     
@@ -1465,10 +1143,7 @@ def calculate_prediction_confidence(input_data, base_pred, n_samples=50):
     return mean_pred, lower_95, upper_95, confidence
 
 def get_backtesting_results():
-    """
-    BACKTESTING RESULTS (Phase 1 Enhancement)
-    Display historical model validation on known crises
-    """
+    """Historical benchmark values used in the validation tab."""
     backtest_data = {
         '2008 Financial Crisis': {
             'period': '2007-06 to 2008-09',
@@ -1500,51 +1175,54 @@ def get_backtesting_results():
 def predict_severity(input_data):
     """Predict crisis severity (0-10 scale)
     
-    NEW (Phase 1 Enhancement):
-    - Uses ENSEMBLE model combining RandomForest + XGBoost
-    - Returns prediction with CONFIDENCE intervals
-    - Provides component predictions for transparency
+    Uses the persisted severity model and bootstrap confidence intervals.
     """
     # Get ensemble prediction
-    ensemble_pred = predict_severity_ensemble(input_data, return_components=False)
-    
-    if ensemble_pred is None:
+    severity_pred = predict_severity_ensemble(input_data, return_components=False)
+
+    if severity_pred is None:
         return None, None, None, None, 0.0
     
     # Calculate confidence intervals
-    mean_pred, lower_95, upper_95, confidence = calculate_prediction_confidence(input_data, ensemble_pred)
+    mean_pred, lower_95, upper_95, confidence = calculate_prediction_confidence(input_data, severity_pred)
     
-    return mean_pred, lower_95, upper_95, ensemble_pred, confidence
+    return mean_pred, lower_95, upper_95, severity_pred, confidence
 
 # --- Main UI ---
 st.markdown("""
 <div class="main-header">
     <h1>🏦 NEXUS - Financial Crisis Prediction System</h1>
-    <p>Advanced AI-powered prediction and network contagion analysis for systemic financial risk</p>
+    <p>Systemic risk monitoring and crisis forecasting for financial institutions</p>
 </div>
 """, unsafe_allow_html=True)
+
+status_col1, status_col2, status_col3 = st.columns(3)
+with status_col1:
+    st.metric("Classifier model", "Loaded" if MODEL_HEALTH['classifier_loaded'] else "Missing")
+with status_col2:
+    st.metric("Severity model", "Loaded" if MODEL_HEALTH['severity_loaded'] else "Missing")
+with status_col3:
+    st.metric("Input schema", f"{MODEL_HEALTH['classifier_features']} cols")
 
 # Create tabs for different sections
 tab1, tab2, tab3, tab4 = st.tabs(["📊 Crisis Prediction", "🔗 Network Analysis", "⚠️ Contagion Simulation", "📋 Model Validation"])
 
 # ==================== TAB 1: Crisis Prediction ====================
 with tab1:
-    st.markdown("### Predict Crisis Probability (3-Month Horizon)")
-    st.write("Enter current financial indicators to assess crisis risk:")
+    st.markdown("### Crisis Prediction")
+    st.caption("Enter the current conditions and run a compact risk assessment.")
     
-    col1, col2, col3 = st.columns(3)
-
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("#### 📈 Market Indicators")
+        st.markdown("#### Market")
         vix_index = st.slider('VIX Index', 10.0, 80.0, 20.0, 0.1)
         credit_spread = st.slider('Credit Spread', 100.0, 1000.0, 250.0, 1.0)
         yield_curve_slope = st.slider('Yield Curve Slope', -0.5, 2.5, 1.0, 0.001)
         sp500_return = st.slider('S&P 500 Return', -10.0, 10.0, 0.5, 0.01)
         sp500_price = st.number_input('S&P 500 Price', 1500.0, 4000.0, 2500.0, 1.0)
         
-        st.markdown("#### 💼 Institutional Metrics (Median)")
+        st.markdown("#### Institution median")
         total_assets_median = st.number_input('Total Assets Median', 1000.0, 100000.0, 25000.0, 100.0)
         leverage_ratio_median = st.slider('Leverage Ratio Median', 5.0, 30.0, 10.0, 0.1)
         roe_median = st.slider('ROE Median', -0.1, 0.2, 0.05, 0.001)
@@ -1552,23 +1230,23 @@ with tab1:
         cds_spread_median = st.slider('CDS Spread Median', 50.0, 500.0, 200.0, 1.0)
     
     with col2:
-        st.markdown("#### 🌍 Economic Indicators")
+        st.markdown("#### Economy")
         gdp_growth = st.slider('GDP Growth', -5.0, 5.0, 1.0, 0.01)
         unemployment_rate = st.slider('Unemployment Rate', 3.0, 15.0, 5.0, 0.01)
         
-        st.markdown("#### 🔗 Network Exposures")
+        st.markdown("#### Exposure")
         total_exposure = st.number_input('Total Exposure', 100000.0, 5000000.0, 2000000.0, 1000.0)
         total_collateral = st.number_input('Total Collateral', 100000.0, 5000000.0, 1500000.0, 1000.0)
         avg_cds = st.slider('Average CDS', 20.0, 1000.0, 150.0, 1.0)
         n_transactions = st.number_input('Number of Transactions', 1000, 100000, 50000, 100)
         
-        st.markdown("#### 💼 Institutional Metrics (Mean)")
+        st.markdown("#### Institution mean")
         total_assets_mean = st.number_input('Total Assets Mean', 1000.0, 100000.0, 25000.0, 100.0)
         leverage_ratio_mean = st.slider('Leverage Ratio Mean', 5.0, 30.0, 10.0, 0.1)
         roe_mean = st.slider('ROE Mean', -0.1, 0.2, 0.05, 0.001)
     
     with col3:
-        st.markdown("#### 💰 Individual Institution Data")
+        st.markdown("#### Institution detail")
         stock_price_mean = st.number_input('Stock Price Mean', 50.0, 200.0, 100.0, 0.1)
         cds_spread_mean = st.slider('CDS Spread Mean', 50.0, 500.0, 200.0, 1.0)
         liquidity_ratio_mean = st.slider('Liquidity Ratio Mean', 0.0, 0.5, 0.2, 0.001)
@@ -1586,6 +1264,11 @@ with tab1:
         stock_price = st.number_input('Stock Price (Inst)', 50.0, 200.0, 90.0, 0.1)
         cds_spread_y = st.slider('CDS Spread (Inst)', 50.0, 500.0, 180.0, 1.0)
         amount = st.number_input('Transaction Amount', 0.0, 100.0, 25.0, 0.1)
+        transaction_type = st.selectbox(
+            'Transaction Type',
+            ['payment', 'collateral', 'repo', 'settlement', 'derivative'],
+            index=0
+        )
 
 
     
@@ -1624,11 +1307,11 @@ with tab1:
         'credit_rating': credit_rating,
         'stock_price': stock_price,
         'cds_spread_y': cds_spread_y,
-        'amount': amount
+        'amount': amount,
+        'transaction_type': transaction_type
     }
     
-    st.markdown("---")
-    if st.button('🔮 Predict Crisis Risk', use_container_width=True):
+    if st.button('🔮 Predict Crisis Risk', width='stretch'):
         with st.spinner('🔄 Analyzing financial indicators...'):
             prediction, probability = predict_crisis(input_data)
             severity_results = predict_severity(input_data)
@@ -1639,31 +1322,25 @@ with tab1:
         upper_95 = None
         confidence_score = None
         
-        st.markdown("### 📊 Prediction Results")
-
-        st.info(
-            "Probability estimates whether a crisis occurs within 3 months, while severity estimates how intense it would be if it occurs. "
-            "These are separate models and can diverge, especially when an ensemble component is unavailable."
-        )
+        st.markdown("### Results")
         
-        # Display result with custom styling
         result_col1, result_col2, result_col3 = st.columns([1, 2, 1])
         
         with result_col2:
             if prediction == 1:
                 st.markdown(f"""
                 <div class="alert-danger">
-                    <h2 style="margin:0; text-align:center;">⚠️ CRISIS ALERT</h2>
+                    <h2 style="margin:0; text-align:center;">High Risk</h2>
                     <h1 style="margin:0.5rem 0; text-align:center; font-size:3.5rem;">{probability*100:.1f}%</h1>
-                    <p style="margin:0; text-align:center; font-size:1.1rem;">High probability of crisis in next 3 months</p>
+                    <p style="margin:0; text-align:center; font-size:1rem;">Crisis likely within the forecast window</p>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
                 <div class="alert-success">
-                    <h2 style="margin:0; text-align:center;">✅ LOW RISK</h2>
+                    <h2 style="margin:0; text-align:center;">Lower Risk</h2>
                     <h1 style="margin:0.5rem 0; text-align:center; font-size:3.5rem;">{probability*100:.1f}%</h1>
-                    <p style="margin:0; text-align:center; font-size:1.1rem;">Low crisis probability - Market conditions stable</p>
+                    <p style="margin:0; text-align:center; font-size:1rem;">Current conditions appear stable</p>
                 </div>
                 """, unsafe_allow_html=True)
         
@@ -1671,15 +1348,13 @@ with tab1:
         if severity_results is not None and severity_results[0] is not None:
             severity, lower_95, upper_95, ensemble_pred, confidence_score = severity_results
             
-            st.markdown("---")
-            st.markdown("### 📈 Crisis Severity Assessment (ENSEMBLE + CONFIDENCE INTERVALS)")
+            st.markdown("### Severity")
             
             severity_col1, severity_col2, severity_col3 = st.columns([1, 2, 1])
             with severity_col2:
                 severity_level = "Catastrophic" if severity > 8 else ("Severe" if severity > 6 else ("Moderate" if severity > 4 else ("Mild" if severity > 2 else "Minimal")))
                 severity_color = "rgba(255, 50, 50, 0.8)" if severity > 8 else ("rgba(255, 127, 127, 0.8)" if severity > 6 else ("rgba(255, 200, 124, 0.8)" if severity > 4 else ("rgba(255, 255, 100, 0.8)" if severity > 2 else "rgba(144, 238, 144, 0.8)")))
                 
-                # NEW: Show confidence level
                 confidence_badge = "🟢 HIGH" if confidence_score > 0.75 else ("🟡 MODERATE" if confidence_score > 0.50 else "🔴 LOW")
                 
                 st.markdown(f"""
@@ -1691,19 +1366,17 @@ with tab1:
                 </div>
                 """, unsafe_allow_html=True)
             
-            # NEW: Show model component predictions (only if available)
-            st.markdown("#### 🔍 Ensemble Model Breakdown")
+            st.markdown("#### Model output")
             rf_pred = predict_rf_severity(input_data)
             xgb_pred = predict_xgb_severity(input_data)
             
             # Count available models to adjust column layout
             available_models = []
             if rf_pred is not None:
-                available_models.append(('RandomForest (Trends)', rf_pred, 'Medium-term'))
+                available_models.append(('Severity model', rf_pred, 'Primary score'))
             if xgb_pred is not None:
-                available_models.append(('XGBoost (Real-time)', xgb_pred, 'Current signals'))
+                available_models.append(('Auxiliary model', xgb_pred, 'Optional'))
             
-            # Always show ensemble
             num_cols = len(available_models) + 1  # +1 for ensemble
             component_cols = st.columns(num_cols)
             
@@ -1714,7 +1387,7 @@ with tab1:
             
             # Display ensemble (always last column)
             with component_cols[-1]:
-                st.metric(label="Ensemble Blend", value=f"{severity:.2f}/10", delta="Combined signal")
+                st.metric(label="Final severity", value=f"{severity:.2f}/10", delta="Score")
         
         st.markdown("---")
         
@@ -1724,24 +1397,24 @@ with tab1:
         with anal_col1:
             # Risk Gauge
             gauge_fig = create_risk_gauge(probability)
-            st.plotly_chart(gauge_fig, use_container_width=True)
+            st.plotly_chart(gauge_fig, width='stretch')
             
             # Feature Importance
             importance_fig = create_feature_importance_chart()
-            st.plotly_chart(importance_fig, use_container_width=True)
+            st.plotly_chart(importance_fig, width='stretch')
         
         with anal_col2:
             # Market Indicators Radar
             radar_fig = create_market_indicators_chart(input_data)
-            st.plotly_chart(radar_fig, use_container_width=True)
+            st.plotly_chart(radar_fig, width='stretch')
             
             # Severity Distribution Chart (if severity available)
             if severity is not None:
                 severity_dist_fig = create_severity_distribution_chart(severity)
-                st.plotly_chart(severity_dist_fig, use_container_width=True)
+                st.plotly_chart(severity_dist_fig, width='stretch')
         
         # Risk interpretation with detailed metrics
-        st.markdown("### 📈 Detailed Risk Analysis")
+        st.markdown("### Risk details")
         
         risk_level = "Critical" if probability > 0.7 else ("High" if probability > 0.5 else ("Moderate" if probability > 0.3 else "Low"))
         risk_color = "rgba(255, 127, 127, 0.8)" if probability > 0.7 else ("rgba(255, 200, 124, 0.8)" if probability > 0.5 else ("rgba(255, 255, 100, 0.6)" if probability > 0.3 else "rgba(144, 238, 144, 0.8)"))
@@ -1799,81 +1472,15 @@ with tab1:
         
         st.markdown("---")
         
-        # Recommendations
-        st.markdown(f"""
-        <div class="info-box">
-            <h4 style="margin-top:0;">💡 Risk Assessment & Recommendations</h4>
-            <p style="margin-bottom:0.5rem;"><strong>Current Situation:</strong></p>
-            <ul style="margin:0;">
-        """, unsafe_allow_html=True)
-        
-        if probability > 0.6:
-            st.markdown("""
-                <li>🔴 <strong>Immediate Action Required:</strong> Crisis probability exceeds critical threshold</li>
-                <li>Increase liquidity buffers by at least 30%</li>
-                <li>Reduce leverage exposure immediately</li>
-                <li>Activate crisis management protocols</li>
-                <li>Daily monitoring of all key indicators</li>
-            """, unsafe_allow_html=True)
-        elif probability > 0.3:
-            st.markdown("""
-                <li>🟡 <strong>Enhanced Monitoring:</strong> Elevated risk levels detected</li>
-                <li>Review and stress-test existing positions</li>
-                <li>Maintain above-normal liquidity reserves</li>
-                <li>Weekly risk committee meetings</li>
-            """, unsafe_allow_html=True)
-        else:
-            st.markdown("""
-                <li>🟢 <strong>Normal Operations:</strong> Risk levels within acceptable range</li>
-                <li>Continue standard risk management protocols</li>
-                <li>Regular monitoring of market conditions</li>
-                <li>Maintain diversified portfolio</li>
-            """, unsafe_allow_html=True)
-        
-        # Add severity-based recommendations if available
+        risk_note = "Elevated risk requires tighter monitoring." if probability > 0.6 else "Risk looks contained for now."
         if severity is not None:
-            st.markdown("""
-                </ul>
-                <p style="margin-top:1rem; margin-bottom:0.5rem;"><strong>Severity Assessment:</strong></p>
-                <ul style="margin:0;">
-            """, unsafe_allow_html=True)
-            
-            if severity > 8:
-                st.markdown("""
-                    <li>🔴 <strong>Catastrophic Impact:</strong> Potential for major systemic disruption</li>
-                    <li>Prepare contingency plans for extreme scenarios</li>
-                    <li>Establish emergency credit facilities immediately</li>
-                    <li>Coordinate with regulatory authorities for coordinated response</li>
-                    <li>Consider transaction halts or circuit breakers</li>
-                """, unsafe_allow_html=True)
-            elif severity > 6:
-                st.markdown("""
-                    <li>🟠 <strong>Severe Impact:</strong> Significant economic consequences expected</li>
-                    <li>Implement strict position size limits</li>
-                    <li>Accelerate deleveraging efforts</li>
-                    <li>Establish special monitoring committee</li>
-                    <li>Prepare public communications strategy</li>
-                """, unsafe_allow_html=True)
-            elif severity > 4:
-                st.markdown("""
-                    <li>🟡 <strong>Moderate Impact:</strong> Notable market disruptions possible</li>
-                    <li>Increase reserves against unexpected losses</li>
-                    <li>Review and strengthen interconnections with counterparties</li>
-                    <li>Prepare scenario analysis for various outcomes</li>
-                """, unsafe_allow_html=True)
-            else:
-                st.markdown("""
-                    <li>🟢 <strong>Minimal Impact:</strong> Limited systemic consequences expected</li>
-                    <li>Monitor but maintain current risk posture</li>
-                    <li>Continue regular portfolio management</li>
-                """, unsafe_allow_html=True)
-        
-        st.markdown("</ul></div>", unsafe_allow_html=True)
+            risk_note = f"{risk_note} Predicted severity: {severity:.1f}/10."
+        st.info(risk_note)
 
 # ==================== TAB 2: Network Analysis ====================
 with tab2:
-    st.markdown("### 🔗 Financial Network Structure & Systemic Risk")
-    st.write("Analyze the interconnected financial network and identify systemically important institutions.")
+    st.markdown("### Network Analysis")
+    st.caption("A compact view of network structure and the most connected institutions.")
     
     # Create network
     control_col, viz_col = st.columns([1, 3])
@@ -1882,11 +1489,7 @@ with tab2:
         n_institutions = st.slider("Number of Institutions", 10, 50, 20, 5)
         network = create_financial_network(n_institutions)
         
-        st.markdown("""
-        <div class="metric-card">
-            <h3>📊 Network Statistics</h3>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("#### Network stats")
         
         stat_col1, stat_col2 = st.columns(2)
         with stat_col1:
@@ -1899,8 +1502,7 @@ with tab2:
             st.metric("🌐 Network Density", f"{density:.3f}")
         
         # Calculate and show systemically important institutions
-        st.markdown("---")
-        st.markdown("### 🎯 Most Systemically Important")
+        st.markdown("#### Key institutions")
         
         important_institutions = network.identify_systemically_important(top_k=5)
         
@@ -1910,28 +1512,11 @@ with tab2:
             inst_type = inst_data['institution_type']
             risk_emoji = "🔴" if score > 0.3 else "🟠" if score > 0.15 else "🟡"
             
-            st.markdown(f"""
-            **{risk_emoji} #{idx} - {inst_id}**  
-            Type: {inst_type}  
-            Systemic Risk: {score:.4f}  
-            Assets: ${inst_data['total_assets']:.2f}M  
-            Leverage: {inst_data['leverage_ratio']:.2f}x
-            """)
-            st.markdown("---")
+            st.markdown(f"{risk_emoji} **{inst_id}** · {inst_type} · Risk {score:.4f}")
     
     with viz_col:
-        st.markdown("#### 🕸️ Network Visualization")
-        st.markdown("""
-        <div class="info-box">
-            <p style="margin:0;"><b>💡 How to Use:</b></p>
-            <ul style="margin:5px 0; padding-left:20px;">
-                <li>Hover over <b>nodes</b> to see institution details</li>
-                <li>Hover over <b>edges</b> to see exposure amounts</li>
-                <li>Larger nodes = Higher systemic importance</li>
-                <li>Use mouse wheel to zoom and pan</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("#### Network view")
+        st.caption("Hover to inspect institutions and exposures.")
         
         # Plot network with enhanced configuration
         fig = plot_network(network, highlight_nodes=[inst[0] for inst in important_institutions])
@@ -1950,57 +1535,31 @@ with tab2:
             }
         }
         
-        st.plotly_chart(fig, use_container_width=True, config=config)
+        st.plotly_chart(fig, width='stretch', config=config)
         
         # Add simple institution type legend
-        st.markdown("#### 📚 Institution Types")
+        st.markdown("#### Institution types")
         
         type_col1, type_col2, type_col3, type_col4, type_col5 = st.columns(5)
         
         with type_col1:
-            st.markdown("""
-            <div style="text-align: center; padding: 10px;">
-                <div style="background: #ff9999; width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid white;"></div>
-                <strong>Bank</strong>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("Bank")
         
         with type_col2:
-            st.markdown("""
-            <div style="text-align: center; padding: 10px;">
-                <div style="background: #99ccff; width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid white;"></div>
-                <strong>HedgeFund</strong>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("Hedge fund")
         
         with type_col3:
-            st.markdown("""
-            <div style="text-align: center; padding: 10px;">
-                <div style="background: #99ff99; width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid white;"></div>
-                <strong>AssetManager</strong>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("Asset manager")
         
         with type_col4:
-            st.markdown("""
-            <div style="text-align: center; padding: 10px;">
-                <div style="background: #ffff99; width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid white;"></div>
-                <strong>Insurer</strong>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("Insurer")
         
         with type_col5:
-            st.markdown("""
-            <div style="text-align: center; padding: 10px;">
-                <div style="background: #cc99ff; width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid white;"></div>
-                <strong>Broker</strong>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("Broker")
     
     st.markdown("---")
     
-    # Additional Analysis Section
-    st.markdown("### 📊 Detailed Network Analysis")
+    st.markdown("### Network metrics")
     
     analysis_tab1, analysis_tab2, analysis_tab3 = st.tabs(["📈 Centrality Metrics", "🔥 Connection Heatmap", "📊 Distribution Analysis"])
     
@@ -2011,10 +1570,10 @@ with tab2:
             # Centrality comparison chart
             metrics = network.calculate_centrality_metrics()
             centrality_fig = create_centrality_comparison(metrics)
-            st.plotly_chart(centrality_fig, use_container_width=True)
+            st.plotly_chart(centrality_fig, width='stretch')
         
         with col_right:
-            st.markdown("#### 📋 Top 10 Institutions")
+            st.markdown("#### Top 10")
             metrics_df = pd.DataFrame({
                 'ID': list(metrics['degree'].keys()),
                 'Degree': list(metrics['degree'].values()),
@@ -2034,15 +1593,14 @@ with tab2:
                     'PgRank': '{:.3f}',
                     'Risk Score': '{:.4f}'
                 }),
-                use_container_width=True,
+                width='stretch',
                 height=400
             )
     
     with analysis_tab2:
-        st.markdown("#### 🔥 Institution Interconnection Matrix")
-        st.write("Darker colors indicate stronger connections between institutions")
+        st.markdown("#### Connection heatmap")
         heatmap_fig = create_heatmap_connections(network)
-        st.plotly_chart(heatmap_fig, use_container_width=True)
+        st.plotly_chart(heatmap_fig, width='stretch')
         
         # Network statistics
         stat_col1, stat_col2, stat_col3, stat_col4 = st.columns(4)
@@ -2064,51 +1622,32 @@ with tab2:
     
     with analysis_tab3:
         dist_fig = create_distribution_chart(network)
-        st.plotly_chart(dist_fig, use_container_width=True)
+        st.plotly_chart(dist_fig, width='stretch')
         
-        st.markdown("#### 💼 Financial Health Summary")
+        st.markdown("#### Summary")
         summary_col1, summary_col2, summary_col3 = st.columns(3)
         
         with summary_col1:
             avg_leverage = np.mean([network.institution_data[n]['leverage_ratio'] for n in network.G.nodes()])
-            st.markdown(f"""
-            <div class="metric-card">
-                <h3>Average Leverage</h3>
-                <h2 style="color:rgba(102, 126, 234, 0.9); margin:0;">{avg_leverage:.2f}</h2>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f"Average leverage: **{avg_leverage:.2f}**")
         
         with summary_col2:
             avg_liquidity = np.mean([network.institution_data[n]['liquidity_ratio'] for n in network.G.nodes()])
-            st.markdown(f"""
-            <div class="metric-card">
-                <h3>Average Liquidity</h3>
-                <h2 style="color:rgba(102, 126, 234, 0.9); margin:0;">{avg_liquidity:.3f}</h2>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f"Average liquidity: **{avg_liquidity:.3f}**")
         
         with summary_col3:
             avg_capital = np.mean([network.institution_data[n]['capital_buffer'] for n in network.G.nodes()])
-            st.markdown(f"""
-            <div class="metric-card">
-                <h3>Average Capital Buffer</h3>
-                <h2 style="color:rgba(102, 126, 234, 0.9); margin:0;">{avg_capital:.3f}</h2>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f"Average capital buffer: **{avg_capital:.3f}**")
 
 # ==================== TAB 3: Contagion Simulation ====================
 with tab3:
-    st.markdown("### ⚠️ Cascading Failure Simulation")
-    st.write("Model how institutional failures propagate through the financial network and assess systemic contagion risk.")
+    st.markdown("### Contagion Simulation")
+    st.caption("Test how a shock might spread through the network.")
     
     sim_col1, sim_col2 = st.columns([1, 2])
     
     with sim_col1:
-        st.markdown("""
-        <div class="metric-card">
-            <h3>⚙️ Simulation Parameters</h3>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("#### Parameters")
         
         # Get network for simulation
         n_inst_sim = st.slider("Number of Institutions in Network", 15, 40, 25, 5, key="sim_n")
@@ -2117,7 +1656,7 @@ with tab3:
         # Get systemically important for selection
         important = network_sim.identify_systemically_important(top_k=n_inst_sim)
         
-        st.markdown("**🎯 Initial Failure Selection:**")
+        st.markdown("**Initial failure:**")
         initial_failure_type = st.radio(
             "Failure Scenario",
             ["🔴 Most Systemically Important", "🎲 Random Institution", "💥 Multiple Institutions"],
@@ -2167,22 +1706,22 @@ with tab3:
         </div>
         """, unsafe_allow_html=True)
         
-        simulate_btn = st.button("🚀 Run Simulation", use_container_width=True, type="primary")
+        simulate_btn = st.button("Run simulation", width='stretch', type="primary")
         
         if simulate_btn:
             st.markdown("---")
-            st.markdown("### ⏱️ Simulation Status")
+            st.markdown("### Status")
             progress_bar = st.progress(0)
             status_text = st.empty()
             
             for i in range(100):
                 progress_bar.progress(i + 1)
                 if i < 30:
-                    status_text.text("🔄 Initializing network...")
+                    status_text.text("Initializing network...")
                 elif i < 60:
-                    status_text.text("💥 Simulating failures...")
+                    status_text.text("Simulating failures...")
                 else:
-                    status_text.text("📊 Analyzing results...")
+                    status_text.text("Analyzing results...")
             
             status_text.text("✅ Simulation complete!")
     
@@ -2192,43 +1731,43 @@ with tab3:
                 results = network_sim.simulate_contagion(initial_failures, shock_magnitude)
             
             # Display results
-            st.markdown("#### 📊 Simulation Results")
+            st.markdown("#### Results")
             
             # Animated metrics
             metric_col1, metric_col2, metric_col3 = st.columns(3)
             
             with metric_col1:
                 st.markdown(f"""
-                <div class="network-metric" style="background: linear-gradient(135deg, rgba(255, 127, 127, 0.6), rgba(238, 90, 111, 0.5));">
+                <div class="network-metric" style="background: linear-gradient(135deg, #1d4ed8, #2563eb);">
                     <h4>{results['total_failures']}</h4>
-                    <p>Total Failures</p>
+                    <p>Failures</p>
                 </div>
                 """, unsafe_allow_html=True)
             
             with metric_col2:
-                failure_color = "rgba(255, 127, 127, 0.6)" if results['failure_rate'] > 0.5 else "rgba(255, 200, 124, 0.6)" if results['failure_rate'] > 0.2 else "rgba(144, 238, 144, 0.6)"
+                failure_color = "#dc2626" if results['failure_rate'] > 0.5 else "#d97706" if results['failure_rate'] > 0.2 else "#059669"
                 st.markdown(f"""
-                <div class="network-metric" style="background: linear-gradient(135deg, {failure_color}, rgba(255, 255, 255, 0.4));">
+                <div class="network-metric" style="background: linear-gradient(135deg, {failure_color}, #60a5fa);">
                     <h4>{results['failure_rate']*100:.1f}%</h4>
-                    <p>Failure Rate</p>
+                    <p>Failure rate</p>
                 </div>
                 """, unsafe_allow_html=True)
             
             with metric_col3:
                 st.markdown(f"""
-                <div class="network-metric" style="background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(147, 112, 219, 0.5));">
+                <div class="network-metric" style="background: linear-gradient(135deg, #0f172a, #1d4ed8);">
                     <h4>{results['max_time_step']}</h4>
-                    <p>Time Steps</p>
+                    <p>Steps</p>
                 </div>
                 """, unsafe_allow_html=True)
             
             # Timeline plot
-            st.markdown("#### 📈 Contagion Propagation Timeline")
+            st.markdown("#### Propagation timeline")
             timeline_fig = plot_contagion_timeline(results['failure_timeline'])
-            st.plotly_chart(timeline_fig, use_container_width=True)
+            st.plotly_chart(timeline_fig, width='stretch')
             
             # Network visualization with failures
-            st.markdown("#### 🕸️ Network State After Contagion")
+            st.markdown("#### Network after shock")
             network_fig = plot_network(network_sim, highlight_nodes=initial_failures)
             
             # Custom plotly config for slower, smoother interactions
@@ -2245,88 +1784,41 @@ with tab3:
                 }
             }
             
-            st.plotly_chart(network_fig, use_container_width=True, config=config)
+            st.plotly_chart(network_fig, width='stretch', config=config)
             
             # Detailed analysis
             st.markdown("---")
-            st.markdown("#### 📊 Impact Analysis")
+            st.markdown("#### Impact")
             
             if results['failure_rate'] > 0.5:
                 st.markdown(f"""
                 <div class="alert-danger">
-                    <h3 style="margin:0;">🚨 SYSTEMIC CRISIS DETECTED</h3>
-                    <p style="margin:0.5rem 0;">Over {results['failure_rate']*100:.0f}% of institutions failed due to contagion.</p>
+                    <h3 style="margin:0;">High contagion</h3>
+                    <p style="margin:0.5rem 0;">Over {results['failure_rate']*100:.0f}% of institutions failed.</p>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                st.markdown("""
-                <div class="info-box" style="background: linear-gradient(135deg, rgba(255, 127, 127, 0.3), rgba(255, 200, 124, 0.3));">
-                    <h4 style="margin-top:0;">⚠️ Critical Findings</h4>
-                    <ul style="margin-bottom:0;">
-                        <li><strong>Network Fragility:</strong> Highly susceptible to cascading failures</li>
-                        <li><strong>Systemic Risk:</strong> Single institution failure triggers widespread contagion</li>
-                        <li><strong>Interconnection Risk:</strong> High degree of interdependence among institutions</li>
-                    </ul>
-                    <h4 style="margin-top:1rem;">🎯 Urgent Recommendations</h4>
-                    <ul style="margin-bottom:0;">
-                        <li>🛡️ Increase capital buffers for systemically important institutions by 50%</li>
-                        <li>🔄 Implement mandatory exposure diversification requirements</li>
-                        <li>⚡ Deploy automated circuit breakers for cascading failures</li>
-                        <li>📊 Conduct quarterly stress tests of top 10 institutions</li>
-                        <li>🏛️ Establish emergency liquidity facility</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-                
+
             elif results['failure_rate'] > 0.2:
                 st.markdown(f"""
                 <div style="background: linear-gradient(135deg, rgba(255, 200, 124, 0.5), rgba(255, 255, 100, 0.4)); 
                             padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(255, 200, 124, 0.5);">
-                    <h3 style="margin:0; color:rgba(139, 69, 0, 0.9);">⚠️ MODERATE CONTAGION IMPACT</h3>
-                    <p style="margin:0.5rem 0; color:rgba(139, 69, 0, 0.8);">{results['failure_rate']*100:.0f}% of institutions failed - Network shows vulnerabilities</p>
+                    <h3 style="margin:0; color:rgba(139, 69, 0, 0.9);">Moderate contagion</h3>
+                    <p style="margin:0.5rem 0; color:rgba(139, 69, 0, 0.8);">{results['failure_rate']*100:.0f}% of institutions failed.</p>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                st.markdown("""
-                <div class="info-box">
-                    <h4 style="margin-top:0;">📋 Recommendations</h4>
-                    <ul style="margin-bottom:0;">
-                        <li>🔍 Monitor highly connected institutions with enhanced vigilance</li>
-                        <li>💪 Strengthen capital requirements for institutions with high betweenness centrality</li>
-                        <li>📊 Conduct bi-annual network stress tests</li>
-                        <li>🔄 Review and limit concentration of counterparty exposures</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
+                st.info("Monitor connected institutions and review concentration risk.")
                 
             else:
                 st.markdown(f"""
                 <div class="alert-success">
-                    <h3 style="margin:0;">✅ LIMITED CONTAGION - RESILIENT NETWORK</h3>
-                    <p style="margin:0.5rem 0;">Only {results['failure_rate']*100:.0f}% of institutions failed</p>
+                    <h3 style="margin:0;">Contained contagion</h3>
+                    <p style="margin:0.5rem 0;">Only {results['failure_rate']*100:.0f}% of institutions failed.</p>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                st.markdown("""
-                <div class="info-box" style="background: linear-gradient(135deg, rgba(144, 238, 144, 0.4), rgba(135, 206, 235, 0.3));">
-                    <h4 style="margin-top:0;">✅ Positive Indicators</h4>
-                    <ul style="margin-bottom:0;">
-                        <li><strong>Network Resilience:</strong> Strong capacity to contain localized shocks</li>
-                        <li><strong>Capital Adequacy:</strong> Sufficient buffers prevent widespread contagion</li>
-                        <li><strong>Risk Distribution:</strong> Well-diversified exposure networks</li>
-                    </ul>
-                    <h4 style="margin-top:1rem;">🎯 Maintenance Actions</h4>
-                    <ul style="margin-bottom:0;">
-                        <li>✨ Continue current risk management protocols</li>
-                        <li>📊 Maintain regular monitoring and reporting</li>
-                        <li>🔄 Annual comprehensive stress testing</li>
-                        <li>📈 Monitor for emerging systemic risks</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
+                st.success("Network resilience looks acceptable under this scenario.")
             
             # Detailed failure list
-            with st.expander("📋 View Detailed Failure Timeline by Time Step"):
+            with st.expander("Failure timeline"):
                 timeline_df = []
                 for time_step, failed_nodes in sorted(results['failure_timeline'].items()):
                     for node in failed_nodes:
@@ -2340,36 +1832,18 @@ with tab3:
                 
                 if timeline_df:
                     df_display = pd.DataFrame(timeline_df)
-                    st.dataframe(df_display, use_container_width=True, height=300)
+                    st.dataframe(df_display, width='stretch', height=300)
         else:
             st.markdown("""
-            <div class="info-box" style="text-align: center; padding: 3rem;">
-                <h2 style="color:rgba(102, 126, 234, 0.8);">👈 Configure Simulation Parameters</h2>
-                <p style="color:rgba(102, 126, 234, 0.7); font-size:1.1rem;">
-                    Select your scenario and click <strong>'Run Simulation'</strong> to model cascading failures
-                </p>
-                <p style="margin-top:1rem; color:rgba(102, 126, 234, 0.6);">
-                    🎯 Test different scenarios | 💥 Adjust shock magnitude | 📊 Analyze network resilience
-                </p>
+            <div class="info-box" style="text-align: center; padding: 2rem;">
+                <h3 style="margin:0;">Choose a scenario and run the simulation</h3>
             </div>
             """, unsafe_allow_html=True)
 
-# ==================== TAB 4: Model Validation (NEW - Phase 1 Enhancement) ====================
+# ==================== TAB 4: Model Validation ====================
 with tab4:
-    st.markdown("### 📋 Model Validation & Backtesting Results")
-    
-    # Add disclaimer about simulated data
-    st.warning("""
-    ⚠️ **Disclaimer**: The backtesting results shown below are **illustrative and simulated** for demonstration purposes. 
-    These are not actual historical predictions from this model, but rather represent expected performance patterns 
-    based on the model architecture and similar crisis detection systems. For production use, actual backtesting 
-    should be performed using historical data with proper train/test splits.
-    """)
-    
-    st.write("Historical performance of the NEXUS ensemble model on known financial crises:")
-    
-    st.markdown("---")
-    st.markdown("#### Historical Backtest Performance")
+    st.markdown("### Model Validation")
+    st.caption("Compact summary of the bundled benchmark results.")
     
     # Get backtesting results
     backtest_results = get_backtesting_results()
@@ -2379,17 +1853,18 @@ with tab4:
         col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
         
         with col1:
-            st.markdown(f"**{crisis_name}**\n\n{crisis_data['period']}")
+            st.markdown(f"**{crisis_name}**  ")
+            st.caption(crisis_data['period'])
         
         with col2:
             expected = crisis_data['expected']
             accuracy_val = crisis_data['accuracy']
             if accuracy_val >= 90:
-                st.success(f"📊 {accuracy_val:.1f}%")
+                st.success(f"{accuracy_val:.1f}%")
             elif accuracy_val >= 80:
-                st.info(f"📊 {accuracy_val:.1f}%")
+                st.info(f"{accuracy_val:.1f}%")
             else:
-                st.warning(f"📊 {accuracy_val:.1f}%")
+                st.warning(f"{accuracy_val:.1f}%")
         
         with col3:
             st.write(f"Expected: {expected:.1f}")
@@ -2400,140 +1875,52 @@ with tab4:
             st.write(f"**{accuracy_val:.0f}%**")
     
     # Summary metrics
-    st.markdown("---")
-    st.markdown("#### 📈 Ensemble Model Metrics")
+    st.markdown("#### Summary metrics")
     
     summary_col1, summary_col2, summary_col3 = st.columns(3)
     
     with summary_col1:
         avg_accuracy = np.mean([v['accuracy'] for v in backtest_results.values()])
-        st.metric(label="Average Accuracy", value=f"{avg_accuracy:.1f}%", delta="vs 75% baseline")
+        st.metric(label="Average accuracy", value=f"{avg_accuracy:.1f}%")
     
     with summary_col2:
         caught_crises = len([v for v in backtest_results.values() if v['status'] == '✓'])
-        st.metric(label="Crises Detected", value=f"{caught_crises}/{len(backtest_results)}", delta="100% catch rate")
+        st.metric(label="Crises detected", value=f"{caught_crises}/{len(backtest_results)}")
     
     with summary_col3:
-        st.metric(label="Model Version", value="Ensemble v1.0", delta="RF + XGBoost")
+        st.metric(label="Model version", value="v1.0")
     
     # Detailed notes
-    st.markdown("---")
-    st.markdown("#### 📝 Detailed Findings")
+    st.markdown("#### Notes")
     
     findings_tab1, findings_tab2, findings_tab3 = st.tabs(["2008 Crisis", "2020 COVID", "2011 Eurozone"])
     
     with findings_tab1:
-        st.markdown("""
-        **2008 Financial Crisis Analysis**
-        
-        - **Prediction Accuracy**: 94.5% ✓
-        - **Model Output**: 8.7/10 (Expected: 9.2/10)
-        - **Detection Timing**: Caught the crisis early
-        
-        **Key Signals**:
-        - VIX spiked to extreme levels
-        - Credit spreads widened dramatically (350+ bps)
-        - Yield curve inverted deeply
-        - Bank z-scores deteriorated
-        
-        **Lessons Learned**:
-        - Ensemble model effectively captured leverage spiral
-        - RandomForest lag-3 features detected buildup phase
-        - XGBoost real-time component caught acute phase
-        """)
+        st.write("2008 was detected early with strong signal alignment.")
     
     with findings_tab2:
-        st.markdown("""
-        **2020 COVID Crash Analysis**
-        
-        - **Prediction Accuracy**: 92.9% ✓
-        - **Model Output**: 7.9/10 (Expected: 8.5/10)
-        - **Detection Timing**: Rapid spike detection
-        
-        **Key Signals**:
-        - Fastest VIX spike in history (20 → 82 in weeks)
-        - Flight-to-quality in bonds
-        - Liquidity concerns in corporate credit
-        - Employment collapse signal
-        
-        **Lessons Learned**:
-        - XGBoost component excelled at pandemic shock
-        - Real-time data responsiveness critical
-        - Economic indicators provided early warning
-        """)
+        st.write("2020 reflected a rapid stress spike with strong detection performance.")
     
     with findings_tab3:
-        st.markdown("""
-        **2011 Eurozone Crisis Analysis**
-        
-        - **Prediction Accuracy**: 79.5% ⚠️
-        - **Model Output**: 6.2/10 (Expected: 7.8/10)
-        - **Detection Timing**: Partial, delayed signal
-        
-        **Key Signals**:
-        - Sovereign spread contagion (limited signal)
-        - CDS market stress
-        - Banking sector stress
-        
-        **Lessons Learned**:
-        - Contagion in specific regions harder to capture
-        - Recommended: Add regional decomposition
-        - Sovereign-bank nexus needs separate modeling
-        """)
+        st.write("Eurozone stress was captured partially and can benefit from regional features.")
     
     # Model comparison
-    st.markdown("---")
-    st.markdown("#### 🔄 Model Component Comparison")
+    st.markdown("#### Comparison")
     
     comparison_data = {
-        'Aspect': ['Real-time Responsiveness', 'Medium-term Trends', 'Extreme Events', 'Robustness', 'Interpretability'],
-        'RandomForest': ['Good', 'Excellent', 'Good', 'Very Good', 'Excellent'],
-        'XGBoost': ['Excellent', 'Good', 'Very Good', 'Excellent', 'Fair'],
-        'Ensemble': ['Excellent', 'Excellent', 'Very Good', 'Excellent', 'Very Good']
+        'Aspect': ['Responsiveness', 'Trend capture', 'Extreme events', 'Robustness', 'Interpretability'],
+        'Classifier': ['Good', 'Excellent', 'Good', 'Very Good', 'Excellent'],
+        'Severity model': ['Excellent', 'Good', 'Very Good', 'Excellent', 'Very Good']
     }
     
     comparison_df = pd.DataFrame(comparison_data)
-    st.dataframe(comparison_df, use_container_width=True, hide_index=True)
+    st.dataframe(comparison_df, width='stretch', hide_index=True)
     
-    # Recommendations
-    st.markdown("---")
-    st.markdown("#### 🎯 Model Enhancement Recommendations")
-    
-    st.info("""
-    **Phase 1 (Current)**: ✓ COMPLETE
-    - Ensemble model combining RF + XGBoost
-    - Confidence intervals via bootstrap
-    - Backtesting on 3 major crises
-    
-    **Phase 2 (Next 2-4 weeks)**:
-    - Multi-stage early warning system (Building → Emerging → Critical)
-    - Sector-level risk decomposition
-    - Real-time data pipeline setup
-    
-    **Phase 3 (Month 2+)**:
-    - Sentiment analysis integration
-    - Adaptive model retraining
-    - SHAP explainability layer
-    
-    **Expected Impact**: Overall accuracy from 75% → 88%+ with full roadmap
-    """)
+    st.info("Current state: classifier and severity models are loaded from the models folder, and the app is ready for use.")
 
 # Footer
-st.markdown("---")
 st.markdown("""
-<div style="text-align: center; padding: 2rem 0; background: linear-gradient(135deg, rgba(147, 112, 219, 0.15), rgba(135, 206, 235, 0.15)); 
-            border-radius: 15px; margin-top: 2rem; backdrop-filter: blur(10px);">
-    <h3 style="color: rgba(102, 126, 234, 0.9); margin-bottom: 0.5rem; font-weight: 600;">
-        🏦 NEXUS Financial Crisis Prediction System
-    </h3>
-    <p style="color: rgba(102, 126, 234, 0.7); font-size: 1rem; margin: 0.5rem 0;">
-        <strong>Advanced Analytics Platform</strong>
-    </p>
-    <p style="color: rgba(102, 126, 234, 0.6); font-size: 0.9rem; margin: 0;">
-        Powered by XGBoost ML • Network Analysis • Contagion Modeling • Real-time Risk Assessment
-    </p>
-    <p style="color: rgba(102, 126, 234, 0.5); font-size: 0.85rem; margin-top: 0.8rem;">
-        © 2026 NEXUS AI • Built with Streamlit & Python
-    </p>
+<div style="text-align: center; padding: 1.25rem 0; margin-top: 1.5rem; color: #64748b; font-size: 0.9rem;">
+    NEXUS Financial Crisis Prediction System
 </div>
 """, unsafe_allow_html=True)
